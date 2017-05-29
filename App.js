@@ -7,8 +7,8 @@ export default class App extends React.Component {
   render() {
     return (
       <View>
-          <Header headerText={'TIME INTO COINS'} />
-          <InputForm />
+        <Header headerText={'TIME INTO COINS'} />
+        <InputForm />
       </View>
     );
   }
