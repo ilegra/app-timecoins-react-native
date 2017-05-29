@@ -14,21 +14,10 @@ class InputForm extends Component {
 
           <CardSection>
             <Input
-              placeholder="Enter the average salary of participants"
-            />
-          </CardSection>
-
-          <CardSection>
-            <Input
               placeholder="Enter the number of participants"
             />
           </CardSection>
-
-          <CardSection>
-              <Button>
-                start
-              </Button>
-          </CardSection>
+          <Button />
         </Card>
     );
   }

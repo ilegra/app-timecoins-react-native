@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Image, ScrollView } from 'react-native';
 import Header from './src/components/common/Header';
 import InputForm from './src/components/InputForm';
 
@@ -8,8 +8,21 @@ export default class App extends React.Component {
     return (
       <View>
         <Header headerText={'TIME INTO COINS'} />
-        <InputForm />
+        <ScrollView>
+          <Image
+            style={styles.logoImage}
+            source={require('./assets/images/desenho-ampulheta.png')}
+          />
+          <InputForm />
+        </ScrollView>
       </View>
     );
   }
 }
+
+const styles = {
+  logoImage: {
+    width: 100,
+    height: 250,
+  }
+};
