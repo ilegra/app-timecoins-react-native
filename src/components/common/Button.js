@@ -1,23 +1,33 @@
 import React from 'react';
-import { Image, TouchableOpacity } from 'react-native';
+import { View, Image, TouchableOpacity } from 'react-native';
 
 const Button = ({ onPress }) => {
     return (
-      <TouchableOpacity onPress={onPress}>
+      <View style={styles.containerButton}>
         <Image
-          style={styles.buttonPlayStyle}
-          source={require('../../../assets/images/botao-play.png')}
+          style={styles.buttonStyle}
+          source={require('../../../assets/images/botao-pause-inativo.png')}
         />
-      </TouchableOpacity>
+
+        <TouchableOpacity onPress={onPress}>
+          <Image
+            style={styles.buttonStyle}
+            source={require('../../../assets/images/botao-play.png')}
+          />
+        </TouchableOpacity>
+      </View>
     );
 };
 
 const styles = {
-  buttonPlayStyle: {
+  buttonStyle: {
     width: 100,
     height: 100,
     marginTop: 5,
-    marginLeft: 200
+  },
+  containerButton: {
+    justifyContent: 'space-around',
+    flexDirection: 'row'
   }
 };
 
