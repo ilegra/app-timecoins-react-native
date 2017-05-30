@@ -6,7 +6,7 @@ import InputForm from './src/components/InputForm';
 export default class App extends React.Component {
   render() {
     return (
-      <View>
+      <View style={{ flex: 1 }}>
         <Header headerText={'TIME INTO COINS'} />
         <ScrollView>
           <View style={styles.containerLogoStyle}>

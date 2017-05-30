@@ -27,7 +27,8 @@ const styles = {
   },
   containerButton: {
     justifyContent: 'space-around',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginBottom: 5
   }
 };
 
