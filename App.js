@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, ScrollView } from 'react-native';
+import { View, Image, ScrollView, KeyboardAvoidingView } from 'react-native';
 import Header from './src/components/common/Header';
 import InputForm from './src/components/InputForm';
 
@@ -9,13 +9,20 @@ export default class App extends React.Component {
       <View style={{ flex: 1 }}>
         <Header headerText={'TIME INTO COINS'} />
         <ScrollView>
+
           <View style={styles.containerLogoStyle}>
             <Image
               style={styles.logoImage}
               source={require('./assets/images/desenho-ampulheta.png')}
             />
           </View>
-          <InputForm />
+
+          <KeyboardAvoidingView
+            behavior="padding"
+          >
+            <InputForm />
+          </KeyboardAvoidingView>
+
         </ScrollView>
       </View>
     );
@@ -24,8 +31,7 @@ export default class App extends React.Component {
 
 const styles = {
   containerLogoStyle: {
-    alignItems: 'center',
-
+    alignItems: 'center'
   },
   logoImage: {
     width: 100,
