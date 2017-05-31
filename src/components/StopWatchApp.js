@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableHighlight, Image } from 'react-native';
+import { View, TouchableOpacity, Image } from 'react-native';
 import { Stopwatch, Timer } from 'react-native-stopwatch-timer';
+import { Card } from './common';
 
 class StopWatchApp extends Component {
   constructor(props) {
@@ -42,53 +43,59 @@ class StopWatchApp extends Component {
   render() {
     return (
       <View>
-        <View style={styles.containerIconStyle}>
-          <Image
-            style={styles.iconStyle}
-            source={require('../../assets/images/relogio.png')}
+        <Card>
+          <View style={styles.containerIconStyle}>
+            <Image
+              style={styles.iconStyle}
+              source={require('../../assets/images/relogio.png')}
+            />
+          </View>
+
+          <Stopwatch
+            laps secs start={this.state.stopwatchStart}
+            reset={this.state.stopwatchReset}
+            options={options}
+            getTime={this.getFormattedTime}
           />
-        </View>
 
-        <Stopwatch
-          laps secs start={this.state.stopwatchStart}
-          reset={this.state.stopwatchReset}
-          options={options}
-          getTime={this.getFormattedTime}
-        />
+          <View style={styles.containerIconStyle}>
+            <Image
+              style={styles.iconStyle}
+              source={require('../../assets/images/moeda.png')}
+            />
+          </View>
 
-        <TouchableHighlight onPress={this.toggleStopwatch}>
-          <Text style={{ fontSize: 30 }}>{!this.state.stopwatchStart ? 'Start' : 'Stop'}</Text>
-        </TouchableHighlight>
-
-        <TouchableHighlight onPress={this.resetStopwatch}>
-          <Text style={{ fontSize: 30 }}>Reset</Text>
-        </TouchableHighlight>
-
-        <View style={styles.containerIconStyle}>
-          <Image
-            style={styles.iconStyle}
-            source={require('../../assets/images/moeda.png')}
+          <Timer
+            totalDuration={this.state.totalDuration}
+            secs start={this.state.timerStart}
+            reset={this.state.timerReset}
+            options={options}
+            handleFinish={handleTimerComplete}
+            getTime={this.getFormattedTime}
           />
-        </View>
 
-        <Timer
-          totalDuration={this.state.totalDuration}
-          secs start={this.state.timerStart}
-          reset={this.state.timerReset}
-          options={options}
-          handleFinish={handleTimerComplete}
-          getTime={this.getFormattedTime}
-        />
+          <View style={styles.containerButtonStyle}>
+            <TouchableOpacity onPress={this.toggleStopwatch}>
+              {!this.state.stopwatchStart ?
+                <Image
+                  style={styles.buttonStyle}
+                  source={require('../../assets/images/botao-play.png')}
+                />
+                :
+                <Image
+                  style={styles.buttonStyle}
+                  source={require('../../assets/images/botao-pause-ativo.png')}
+                />}
+            </TouchableOpacity>
 
-        <TouchableHighlight onPress={this.toggleTimer}>
-          <Text style={{ fontSize: 30 }}>
-            {!this.state.timerStart ? 'Start' : 'Stop'}
-          </Text>
-        </TouchableHighlight>
-
-        <TouchableHighlight onPress={this.resetTimer}>
-          <Text style={{ fontSize: 30 }}>Reset</Text>
-        </TouchableHighlight>
+            <TouchableOpacity onPress={this.resetStopwatch}>
+              <Image
+                style={styles.buttonStyle}
+                source={require('../../assets/images/botao-stop.png')}
+              />
+            </TouchableOpacity>
+          </View>
+        </Card>
       </View>
     );
   }
@@ -104,6 +111,16 @@ const styles = {
   },
   containerIconStyle: {
     alignItems: 'center'
+  },
+  buttonStyle: {
+    width: 100,
+    height: 100,
+    marginTop: 5,
+  },
+  containerButtonStyle: {
+    justifyContent: 'space-around',
+    flexDirection: 'row',
+    marginBottom: 5
   }
 };
 
