@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableHighlight } from 'react-native';
+import { Text, View, TouchableHighlight, Image } from 'react-native';
 import { Stopwatch, Timer } from 'react-native-stopwatch-timer';
 
 class StopWatchApp extends Component {
@@ -42,8 +42,15 @@ class StopWatchApp extends Component {
   render() {
     return (
       <View>
+        <View style={styles.containerIconStyle}>
+          <Image
+            style={styles.iconStyle}
+            source={require('../../assets/images/relogio.png')}
+          />
+        </View>
+
         <Stopwatch
-          laps msecs start={this.state.stopwatchStart}
+          laps secs start={this.state.stopwatchStart}
           reset={this.state.stopwatchReset}
           options={options}
           getTime={this.getFormattedTime}
@@ -57,9 +64,16 @@ class StopWatchApp extends Component {
           <Text style={{ fontSize: 30 }}>Reset</Text>
         </TouchableHighlight>
 
+        <View style={styles.containerIconStyle}>
+          <Image
+            style={styles.iconStyle}
+            source={require('../../assets/images/moeda.png')}
+          />
+        </View>
+
         <Timer
           totalDuration={this.state.totalDuration}
-          msecs start={this.state.timerStart}
+          secs start={this.state.timerStart}
           reset={this.state.timerReset}
           options={options}
           handleFinish={handleTimerComplete}
@@ -67,7 +81,9 @@ class StopWatchApp extends Component {
         />
 
         <TouchableHighlight onPress={this.toggleTimer}>
-          <Text style={{ fontSize: 30 }}>{!this.state.timerStart ? 'Start' : 'Stop'}</Text>
+          <Text style={{ fontSize: 30 }}>
+            {!this.state.timerStart ? 'Start' : 'Stop'}
+          </Text>
         </TouchableHighlight>
 
         <TouchableHighlight onPress={this.resetTimer}>
@@ -79,6 +95,17 @@ class StopWatchApp extends Component {
 }
 
 const handleTimerComplete = () => ('custom completion function');
+
+const styles = {
+  iconStyle: {
+    width: 50,
+    height: 50,
+    marginTop: 20
+  },
+  containerIconStyle: {
+    alignItems: 'center'
+  }
+};
 
 const options = {
   container: {
