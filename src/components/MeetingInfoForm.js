@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardSection, Input, Button } from './common';
 
-class InputForm extends Component {
+class MeetingInfoForm extends Component {
 
   render() {
     return (
@@ -17,10 +17,13 @@ class InputForm extends Component {
               placeholder="Enter the number of participants"
             />
           </CardSection>
-          <Button />
+
+            <Button>
+              {require('../../assets/images/botao-play.png')}
+            </Button>
         </Card>
     );
   }
 }
 
-export default InputForm;
+export default MeetingInfoForm;

@@ -1,19 +1,28 @@
 import React from 'react';
-import { View, Image, ScrollView } from 'react-native';
+import { View, Image, ScrollView, KeyboardAvoidingView } from 'react-native';
 import Header from './src/components/common/Header';
-import InputForm from './src/components/InputForm';
+import MeetingInfoForm from './src/components/MeetingInfoForm';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View>
+      <View style={{ flex: 1 }}>
         <Header headerText={'TIME INTO COINS'} />
         <ScrollView>
-          <Image
-            style={styles.logoImage}
-            source={require('./assets/images/desenho-ampulheta.png')}
-          />
-          <InputForm />
+
+          <View style={styles.containerLogoStyle}>
+            <Image
+              style={styles.logoImage}
+              source={require('./assets/images/desenho-ampulheta.png')}
+            />
+          </View>
+
+          <KeyboardAvoidingView
+            behavior="padding"
+          >
+            <MeetingInfoForm />
+          </KeyboardAvoidingView>
+
         </ScrollView>
       </View>
     );
@@ -21,8 +30,13 @@ export default class App extends React.Component {
 }
 
 const styles = {
+  containerLogoStyle: {
+    alignItems: 'center'
+  },
   logoImage: {
     width: 100,
     height: 250,
+    marginTop: 5,
+    marginBottom: 5
   }
 };
