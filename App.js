@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Image, ScrollView, KeyboardAvoidingView } from 'react-native';
 import Header from './src/components/common/Header';
-import InputForm from './src/components/InputForm';
+import MeetingInfoForm from './src/components/MeetingInfoForm';
 
 export default class App extends React.Component {
   render() {
@@ -20,7 +20,7 @@ export default class App extends React.Component {
           <KeyboardAvoidingView
             behavior="padding"
           >
-            <InputForm />
+            <MeetingInfoForm />
           </KeyboardAvoidingView>
 
         </ScrollView>
