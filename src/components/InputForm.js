@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Card, CardSection, Input, Button } from './common';
 
 class InputForm extends Component {
-
+  
   render() {
     return (
         <Card>
