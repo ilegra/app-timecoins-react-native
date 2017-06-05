@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Image, ScrollView, KeyboardAvoidingView } from 'react-native';
 import Header from './src/components/common/Header';
 import MeetingInfoForm from './src/components/MeetingInfoForm';
+import StopWatchApp from './src/components/StopWatchApp';
+
 
 export default class App extends React.Component {
   render() {
@@ -23,11 +25,13 @@ export default class App extends React.Component {
             <MeetingInfoForm />
           </KeyboardAvoidingView>
 
+          <StopWatchApp />
         </ScrollView>
       </View>
     );
   }
 }
+
 
 const styles = {
   containerLogoStyle: {
