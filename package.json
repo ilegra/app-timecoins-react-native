@@ -24,11 +24,8 @@
     "minutes-seconds-milliseconds": "^1.0.3",
     "react": "16.0.0-alpha.6",
     "react-native": "^0.44.0",
-<<<<<<< HEAD
-=======
     "react-native-img-button": "^1.0.1",
     "react-native-stopwatch": "0.0.4",
->>>>>>> 2516655d98415657d81d1d5984f7dfe3100fa13c
     "react-native-stopwatch-timer": "0.0.19"
   }
 }

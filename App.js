@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Image, ScrollView, KeyboardAvoidingView } from 'react-native';
 import Header from './src/components/common/Header';
-import StopWatchApp from './src/components/StopWatchApp';
 import MeetingInfoForm from './src/components/MeetingInfoForm';
 
 
