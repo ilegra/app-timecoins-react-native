@@ -12,6 +12,7 @@ class StopWatchApp extends Component {
       totalDuration: 90000,
       timerReset: false,
       stopwatchReset: false,
+      timePassed: ''
     };
 
     this.toggleTimer = this.toggleTimer.bind(this);
@@ -20,7 +21,7 @@ class StopWatchApp extends Component {
     this.resetStopwatch = this.resetStopwatch.bind(this);
   }
 
-  getFormattedTime(time) {
+  getFormattedTime = (time) => {
       this.currentTime = time;
   }
 
