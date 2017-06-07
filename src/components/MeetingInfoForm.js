@@ -1,53 +1,69 @@
 import React, { Component } from 'react';
-import StopWatchApp from './StopWatchApp';
+import { View, Image } from 'react-native';
 import { Card, CardSection, Input, Button } from './common';
 
-
 class MeetingInfoForm extends Component {
-  state = { salary: '', number: '', onFirstScreen: true };
+  state = {
+    amount: 0,
+    quantity: 0,
+  };
 
-  onButtonPress() {
-    const { salary, number } = this.state;
-
+  onChange = (field, value) => {
+    this.setState({
+      [field]: value,
+    })
   }
 
-  getSalaryAndNumber() {
+  onPress = () => {
+    this.props.onSubmit({
+      amount: this.state.amount,
+      quantity: this.state.quantity,
+    });
+  };
+
+  render() {
     return (
       <Card>
+        <View style={styles.containerLogoStyle}>
+          <Image
+            style={styles.logoImage}
+            source={require('../../assets/images/desenho-ampulheta.png')}
+          />
+        </View>
+
         <CardSection>
           <Input
+            onChangeText={this.onChange.bind(this, 'amount')}
             placeholder="Enter the average salary of participants"
-            value={this.state.salary}
-            onChangeText={salary => this.setState({ salary })}
           />
         </CardSection>
 
         <CardSection>
           <Input
+            onChangeText={this.onChange.bind(this, 'quantity')}
             placeholder="Enter the number of participants"
-            value={this.state.number}
-            onChangeText={number => this.setState({ number })}
           />
         </CardSection>
 
-          <Button onPress={this.onButtonPress.bind(this)}>
-            {require('../../assets/images/botao-play.png')}
-          </Button>
+        <Button onPress={this.onPress}>
+          {require('../../assets/images/botao-play.png')}
+        </Button>
       </Card>
     );
   }
-
-  render() {
-    if (this.state.onFirstScreen) {
-      return (
-        this.getSalaryAndNumber
-      );
-    } else {
-      return (
-        <StopWatchApp salary={this.state.salary} number={this.state.number} />
-      );
-    }
-  }
 }
+
+const styles = {
+  containerLogoStyle: {
+    alignItems: 'center'
+  },
+  logoImage: {
+    width: 100,
+    height: 250,
+    marginTop: 15,
+    marginBottom: 15
+  }
+};
+
 
 export default MeetingInfoForm;

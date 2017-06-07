@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity, Image } from 'react-native';
-import { Stopwatch, Timer } from 'react-native-stopwatch-timer';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { Stopwatch } from 'react-native-stopwatch-timer';
 import { Card } from './common';
 
 class StopWatchApp extends Component {
@@ -8,12 +8,14 @@ class StopWatchApp extends Component {
     super(props);
     this.state = {
       timerStart: false,
-      stopwatchStart: false,
-      totalDuration: 90000,
+      stopwatchStart: true,
+      totalDuration: 0,
       timerReset: false,
       stopwatchReset: false,
       timePassed: ''
     };
+
+    this.currentTime = 0;
 
     this.toggleTimer = this.toggleTimer.bind(this);
     this.resetTimer = this.resetTimer.bind(this);
@@ -22,7 +24,7 @@ class StopWatchApp extends Component {
   }
 
   getFormattedTime = (time) => {
-      this.currentTime = time;
+    this.currentTime = time;
   }
 
   toggleTimer() {
@@ -39,6 +41,10 @@ class StopWatchApp extends Component {
 
   resetStopwatch() {
     this.setState({ stopwatchStart: false, stopwatchReset: true });
+
+    this.props.onStop({
+      currentTime: this.currentTime,
+    });
   }
 
   render() {
@@ -53,7 +59,7 @@ class StopWatchApp extends Component {
           </View>
 
           <Stopwatch
-            laps secs start={this.state.stopwatchStart}
+            start={this.state.stopwatchStart}
             reset={this.state.stopwatchReset}
             options={options}
             getTime={this.getFormattedTime}
@@ -66,14 +72,9 @@ class StopWatchApp extends Component {
             />
           </View>
 
-          <Timer
-            totalDuration={this.state.totalDuration}
-            secs start={this.state.timerStart}
-            reset={this.state.timerReset}
-            options={options}
-            handleFinish={handleTimerComplete}
-            getTime={this.getFormattedTime}
-          />
+          <Text>
+            { this.currentTime }
+          </Text>
 
           <View style={styles.containerButtonStyle}>
             <TouchableOpacity onPress={this.toggleStopwatch}>
@@ -111,7 +112,8 @@ const styles = {
     marginTop: 20
   },
   containerIconStyle: {
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 25
   },
   buttonStyle: {
     width: 100,
@@ -121,6 +123,7 @@ const styles = {
   containerButtonStyle: {
     justifyContent: 'space-around',
     flexDirection: 'row',
+    marginTop: 100,
     marginBottom: 5
   }
 };
@@ -130,6 +133,7 @@ const options = {
     padding: 5,
     borderRadius: 5,
     alignItems: 'center'
+
   },
   text: {
     fontSize: 30,
