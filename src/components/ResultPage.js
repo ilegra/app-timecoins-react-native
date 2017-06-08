@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
-import AdComponent from './AdComponent';
-import { Card, Button } from './common';
+import { Text, View } from 'react-native';
 import { FacebookAds } from 'expo';
+import { Card, Button } from './common';
+import AdComponent from './AdComponent';
 
 const adsManager = new FacebookAds.NativeAdsManager('824806654350563_824807234350505', 1);
 
@@ -21,10 +21,10 @@ class ResultPage extends Component {
           {require('../../assets/images/botao-recomeçar.png')}
         </Button>
 
+        <View>
           <AdComponent adsManager={adsManager} />
+        </View>
        </Card>
-
-
      );
    }
 }
