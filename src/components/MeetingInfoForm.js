@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Image } from 'react-native';
+import Expo from 'expo';
 import { Card, CardSection, Input, Button } from './common';
 
 class MeetingInfoForm extends Component {
@@ -7,6 +8,10 @@ class MeetingInfoForm extends Component {
     amount: 0,
     quantity: 0,
   };
+
+  componentWillMount() {
+    this.analytics();
+  }
 
   onChange = (field, value) => {
     this.setState({
@@ -19,7 +24,12 @@ class MeetingInfoForm extends Component {
       amount: this.state.amount,
       quantity: this.state.quantity,
     });
+    Expo.Segment.track('botao-play');
   };
+
+  analytics() {
+    Expo.Segment.track('MeetingInfoForm');
+  }
 
   render() {
     return (
