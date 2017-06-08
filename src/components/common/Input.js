@@ -7,6 +7,7 @@ const Input = ({ value, onChangeText, placeholder }) => {
   return (
     <View style={containerStyle}>
       <TextInput
+        keyboardType={'numeric'}
         placeholder={placeholder}
         autoCorrect={false}
         style={inputStyle}
