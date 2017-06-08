@@ -21,9 +21,7 @@ class ResultPage extends Component {
           {require('../../assets/images/botao-recomeçar.png')}
         </Button>
 
-
-        <AdComponent adsManager={adsManager} />
-
+          <AdComponent adsManager={adsManager} />
        </Card>
 
 
