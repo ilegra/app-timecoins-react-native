@@ -6,7 +6,6 @@ import MeetingInfoForm from './src/components/MeetingInfoForm';
 import StopWatchApp from './src/components/StopWatchApp';
 import ResultPage from './src/components/ResultPage';
 
-
 export default class App extends React.Component {
   state = {
     page: 'MeetingInfoForm',
@@ -26,7 +25,7 @@ export default class App extends React.Component {
     });
   };
 
-  onSubmitStopWatchApp = (currentTime) => {
+  onSubmitStopWatchApp = ({ currentTime }) => {
     this.setState({
       page: 'ResultPage',
       currentTime,
@@ -51,11 +50,20 @@ export default class App extends React.Component {
       );
     } else if (this.state.page === 'StopWatchApp') {
       return (
-        <StopWatchApp onStop={this.onSubmitStopWatchApp} />
+        <StopWatchApp
+          onStop={this.onSubmitStopWatchApp}
+          amount={this.state.amount}
+          quantity={this.state.quantity}
+        />
       );
     } else if (this.state.page === 'ResultPage') {
       return (
-        <ResultPage currentTime={this.state.currentTime} onReset={this.onSubmitResultPage} />
+        <ResultPage
+          currentTime={this.state.currentTime}
+          onReset={this.onSubmitResultPage}
+          amount={this.state.amount}
+          quantity={this.state.quantity}
+        />
       );
     }
   };
