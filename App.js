@@ -1,9 +1,11 @@
 import React from 'react';
 import { View, ScrollView, KeyboardAvoidingView } from 'react-native';
+import Expo from 'expo';
 import Header from './src/components/common/Header';
 import MeetingInfoForm from './src/components/MeetingInfoForm';
 import StopWatchApp from './src/components/StopWatchApp';
 import ResultPage from './src/components/ResultPage';
+
 
 export default class App extends React.Component {
   state = {
@@ -11,6 +13,10 @@ export default class App extends React.Component {
     amount: 0,
     quantity: 0,
     currentTime: 0,
+  }
+
+  componentWillMount() {
+    this.analytics();
   }
 
   onSubmitMeetingForm = (values) => {
@@ -31,7 +37,12 @@ export default class App extends React.Component {
     this.setState({
       page: 'MeetingInfoForm'
     });
+    Expo.Segment.track('botao-retornar');
   };
+
+  analytics() {
+    Expo.Segment.initializeIOS('7XJRKh7rQLa8Qx1qd6olaLg2XZ0PkKfH');
+  }
 
   renderPage = () => {
     if (this.state.page === 'MeetingInfoForm') {
@@ -48,6 +59,7 @@ export default class App extends React.Component {
       );
     }
   };
+
 
   render() {
     return (

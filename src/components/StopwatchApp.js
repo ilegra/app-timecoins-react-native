@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
+import Expo from 'expo';
 import { Stopwatch } from 'react-native-stopwatch-timer';
 import { Card } from './common';
 
@@ -23,6 +24,10 @@ class StopWatchApp extends Component {
     this.resetStopwatch = this.resetStopwatch.bind(this);
   }
 
+  componentWillMount() {
+    this.analytics();
+  }
+
   getFormattedTime = (time) => {
     this.currentTime = time;
   }
@@ -37,6 +42,7 @@ class StopWatchApp extends Component {
 
   toggleStopwatch() {
     this.setState({ stopwatchStart: !this.state.stopwatchStart, stopwatchReset: false });
+    Expo.Segment.track('botao-pause-play');
   }
 
   resetStopwatch() {
@@ -45,6 +51,11 @@ class StopWatchApp extends Component {
     this.props.onStop({
       currentTime: this.currentTime,
     });
+    Expo.Segment.track('botao-stop');
+  }
+
+  analytics() {
+    Expo.Segment.track('StopWatchApp');
   }
 
   render() {
