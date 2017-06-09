@@ -11,7 +11,7 @@ class MeetingInfoForm extends Component {
   onChange = (field, value) => {
     this.setState({
       [field]: value,
-    })
+    });
   }
 
   onPress = () => {
