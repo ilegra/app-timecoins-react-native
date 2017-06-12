@@ -38,7 +38,6 @@ class StopWatchApp extends Component {
 
   getFormattedTime = (time) => {
     if (this.state.currentTime === time) return;
-
     this.setState({
       currentTime: time,
     });
@@ -49,7 +48,7 @@ class StopWatchApp extends Component {
   }
 
   resetTimer() {
-    this.setState({ timerStart: false, timerReset: true });
+    this.setState({ timerStart: false, timerReset: false });
   }
 
   toggleStopwatch() {
@@ -58,10 +57,10 @@ class StopWatchApp extends Component {
   }
 
   resetStopwatch() {
-    this.setState({ stopwatchStart: false, stopwatchReset: true });
+    this.setState({ stopwatchStart: false, stopwatchReset: false });
 
     this.props.onStop({
-      currentTime: this.currentTime,
+      currentTime: this.state.currentTime,
     });
     Expo.Segment.track('botao-stop');
   }
@@ -96,7 +95,10 @@ class StopWatchApp extends Component {
           </View>
 
           <Text>
-            { timeToSec(this.state.currentTime) * ((this.props.quantity * this.props.amount) / 9600) }
+            { timeToSec(this.state.currentTime)
+              * ((this.props.quantity
+              * this.props.amount) / 9600)
+            }
           </Text>
 
           <View style={styles.containerButtonStyle}>
