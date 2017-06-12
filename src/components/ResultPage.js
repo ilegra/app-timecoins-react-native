@@ -15,7 +15,7 @@ const timeToSec = (time) => {
 
 class ResultPage extends Component {
 
-  componentWillMount() { 
+  componentWillMount() {
     this.analytics();
   }
 
@@ -34,9 +34,9 @@ class ResultPage extends Component {
         <Text>
           The meeting cost to your company:
           {
-            timeToSec(this.props.currentTime)
+            Math.round(timeToSec(this.props.currentTime)
             * ((this.props.quantity
-            * this.props.amount) / 9600)
+            * this.props.amount) / 9600) * 100) / 100
           }
         </Text>
 

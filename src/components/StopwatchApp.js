@@ -95,9 +95,10 @@ class StopWatchApp extends Component {
           </View>
 
           <Text>
-            { timeToSec(this.state.currentTime)
+            {
+              Math.round(timeToSec(this.state.currentTime)
               * ((this.props.quantity
-              * this.props.amount) / 9600)
+              * this.props.amount) / 9600) * 100) / 100
             }
           </Text>
 
