@@ -36,7 +36,7 @@ class ResultPage extends Component {
           {
             Math.round(timeToSec(this.props.currentTime)
             * ((this.props.quantity
-            * this.props.amount) / 9600) * 100) / 100
+            * this.props.amount) / 576.000)) / 100
           }
         </Text>
 
