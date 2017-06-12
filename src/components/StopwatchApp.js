@@ -4,6 +4,15 @@ import Expo from 'expo';
 import { Stopwatch } from 'react-native-stopwatch-timer';
 import { Card } from './common';
 
+const timeToSec = (time) => {
+  const [
+    hour,
+    min,
+    sec,
+  ] = time.split(':');
+  return ((+hour) * 60 * 60) + ((+min) * 60) + (+sec);
+};
+
 class StopWatchApp extends Component {
   constructor(props) {
     super(props);
@@ -13,10 +22,9 @@ class StopWatchApp extends Component {
       totalDuration: 0,
       timerReset: false,
       stopwatchReset: false,
-      timePassed: ''
+      timePassed: '',
+      currentTime: '00:00:00',
     };
-
-    this.currentTime = 0;
 
     this.toggleTimer = this.toggleTimer.bind(this);
     this.resetTimer = this.resetTimer.bind(this);
@@ -29,7 +37,11 @@ class StopWatchApp extends Component {
   }
 
   getFormattedTime = (time) => {
-    this.currentTime = time;
+    if (this.state.currentTime === time) return;
+
+    this.setState({
+      currentTime: time,
+    });
   }
 
   toggleTimer() {
@@ -84,7 +96,7 @@ class StopWatchApp extends Component {
           </View>
 
           <Text>
-            { this.currentTime }
+            { timeToSec(this.state.currentTime) * ((this.props.quantity * this.props.amount) / 9600) }
           </Text>
 
           <View style={styles.containerButtonStyle}>
