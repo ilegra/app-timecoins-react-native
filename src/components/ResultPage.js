@@ -82,7 +82,7 @@ const styles = {
     flex: 2,
     alignSelf: 'stretch',
     alignItems: 'center',
-    marginBottom: 25
+    marginBottom: 40
   },
   firstBackgroundColor: {
     backgroundColor: '#FFC543'
