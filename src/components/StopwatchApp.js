@@ -13,6 +13,21 @@ const timeToSec = (time) => {
   return ((+hour) * 60 * 60) + ((+min) * 60) + (+sec);
 };
 
+const ShowAmount = ({
+  currentTime,
+  quantity,
+  amount,
+}) => (
+  <Text style={styles.textCost}>
+    $
+    {
+      Math.round(timeToSec(currentTime)
+      * ((quantity
+      * amount) / 576.000)) / 100
+    }
+  </Text>
+);
+
 class StopWatchApp extends Component {
   constructor(props) {
     super(props);
@@ -38,8 +53,11 @@ class StopWatchApp extends Component {
 
   getFormattedTime = (time) => {
     if (this.state.currentTime === time) return;
-    this.setState({
-      currentTime: time,
+
+    setTimeout(() => {
+      this.setState({
+        currentTime: time,
+      });
     });
   }
 
@@ -95,14 +113,11 @@ class StopWatchApp extends Component {
             </View>
 
             <View style={styles.containerCost}>
-              <Text style={styles.textCost}>
-                $
-                {
-                  Math.round(timeToSec(this.state.currentTime)
-                  * ((this.props.quantity
-                  * this.props.amount) / 576.000)) / 100
-                }
-              </Text>
+              <ShowAmount
+                quantity={this.props.quantity}
+                currentTime={this.state.currentTime}
+                amount={this.props.amount}
+              />
             </View>
 
             <View style={styles.containerButtonStyle}>
