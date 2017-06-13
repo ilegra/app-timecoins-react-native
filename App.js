@@ -3,7 +3,7 @@ import { View, ScrollView, KeyboardAvoidingView } from 'react-native';
 import Expo from 'expo';
 import Header from './src/components/common/Header';
 import MeetingInfoForm from './src/components/MeetingInfoForm';
-import StopWatchApp from './src/components/StopWatchApp';
+import StopWatchApp from './src/components/StopWatchApp.js';
 import ResultPage from './src/components/ResultPage';
 
 export default class App extends React.Component {
