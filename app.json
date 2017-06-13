@@ -1,5 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "17.0.0"
+   "name": "Time Into Coins",
+   "icon": "https://mairadoliveira.files.wordpress.com/2017/06/launcher-icone-googleplay-512px.png",
+   "version": "1.0.0",
+   "slug": "timeIntoCoins",
+   "sdkVersion": "17.0.0",
+   "ios": {
+     "bundleIdentifier": "com.ilegra.timeIntoCoins",
+   },
+   "android": {
+     "package": "com.ilegra.timeIntoCoins",
+   }
   }
 }
