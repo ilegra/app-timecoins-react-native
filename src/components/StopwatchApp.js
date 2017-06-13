@@ -71,60 +71,64 @@ class StopWatchApp extends Component {
 
   render() {
     return (
-      <View>
         <Card>
-          <View style={styles.containerIconStyle}>
-            <Image
-              style={styles.iconStyle}
-              source={require('../../assets/images/relogio.png')}
-            />
-          </View>
-
-          <Stopwatch
-            start={this.state.stopwatchStart}
-            reset={this.state.stopwatchReset}
-            options={options}
-            getTime={this.getFormattedTime}
-          />
-
-          <View style={styles.containerIconStyle}>
-            <Image
-              style={styles.iconStyle}
-              source={require('../../assets/images/moeda.png')}
-            />
-          </View>
-
-          <Text>
-            {
-              Math.round(timeToSec(this.state.currentTime)
-              * ((this.props.quantity
-              * this.props.amount) / 576.000)) / 100
-            }
-          </Text>
-
-          <View style={styles.containerButtonStyle}>
-            <TouchableOpacity onPress={this.toggleStopwatch}>
-              {!this.state.stopwatchStart ?
-                <Image
-                  style={styles.buttonStyle}
-                  source={require('../../assets/images/botao-play.png')}
-                />
-                :
-                <Image
-                  style={styles.buttonStyle}
-                  source={require('../../assets/images/botao-pause-ativo.png')}
-                />}
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={this.resetStopwatch}>
+          <View style={styles.containerAll}>
+            <View style={styles.containerIconStyle}>
               <Image
-                style={styles.buttonStyle}
-                source={require('../../assets/images/botao-stop.png')}
+                style={styles.iconStyle}
+                source={require('../../assets/images/relogio.png')}
               />
-            </TouchableOpacity>
+            </View>
+
+            <Stopwatch
+              start={this.state.stopwatchStart}
+              reset={this.state.stopwatchReset}
+              options={options}
+              getTime={this.getFormattedTime}
+            />
+
+            <View style={styles.containerIconStyle}>
+              <Image
+                style={styles.iconStyle}
+                source={require('../../assets/images/moeda.png')}
+              />
+            </View>
+
+            <View style={styles.containerCost}>
+              <Text style={styles.textCost}>
+                $
+                {
+                  Math.round(timeToSec(this.state.currentTime)
+                  * ((this.props.quantity
+                  * this.props.amount) / 576.000)) / 100
+                }
+              </Text>
+            </View>
+
+            <View style={styles.containerButtonStyle}>
+              <TouchableOpacity onPress={this.toggleStopwatch}>
+                {!this.state.stopwatchStart ?
+                  <Image
+                    style={styles.buttonStyle}
+                    source={require('../../assets/images/botao-play.png')}
+                  />
+                  :
+                  <Image
+                    style={styles.buttonStyle}
+                    source={require('../../assets/images/botao-pause-ativo.png')}
+                  />}
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={this.resetStopwatch}>
+                <Image
+                  style={styles.buttonStyle}
+                  source={require('../../assets/images/botao-stop.png')}
+                />
+              </TouchableOpacity>
+            </View>
           </View>
         </Card>
-      </View>
+
     );
   }
 }
@@ -132,6 +136,9 @@ class StopWatchApp extends Component {
 const handleTimerComplete = () => ('custom completion function');
 
 const styles = {
+  containerAll: {
+    marginTop: 20
+  },
   iconStyle: {
     width: 50,
     height: 50,
@@ -149,22 +156,33 @@ const styles = {
   containerButtonStyle: {
     justifyContent: 'space-around',
     flexDirection: 'row',
-    marginTop: 100,
+    marginTop: 50,
     marginBottom: 5
-  }
+  },
+  textCost: {
+    fontSize: 30,
+    color: '#FFC543',
+    marginLeft: 7
+  },
+  containerCost: {
+    padding: 5,
+    borderRadius: 5,
+    alignItems: 'center'
+  },
 };
 
 const options = {
   container: {
     padding: 5,
     borderRadius: 5,
-    alignItems: 'center'
-
+    alignItems: 'center',
+    marginBottom: 10
   },
   text: {
     fontSize: 30,
     color: '#6F3AAD',
     marginLeft: 7,
+    alignItems: 'center'
   }
 };
 
