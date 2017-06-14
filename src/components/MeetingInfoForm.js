@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Image } from 'react-native';
 import Expo from 'expo';
 import { Card, CardSection, Input, Button } from './common';
+import Banner from './Banner';
 
 class MeetingInfoForm extends Component {
   state = {
@@ -58,6 +59,7 @@ class MeetingInfoForm extends Component {
         <Button onPress={this.onPress}>
           {require('../../assets/images/botao-play.png')}
         </Button>
+        <Banner placementId="824806654350563_824807234350505" />
       </Card>
     );
   }
