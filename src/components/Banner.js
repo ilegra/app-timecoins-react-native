@@ -18,6 +18,7 @@ const Banner = ({ placementId }) => {
 
 const styles = {
   styleBanner: {
+    paddingTop: 5,
     paddingBottom: 20
   }
 };

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import Expo from 'expo';
+import { Font } from 'expo';
 import { Card, Button } from './common';
 
 const timeToSec = (time) => {
@@ -19,6 +20,13 @@ class ResultPage extends Component {
     this.analytics();
   }
 
+  componentDidMount() {
+    Font.loadAsync({
+     'Raleway-Light': require('../../assets/fonts/Raleway-Light.ttf'),
+     'Raleway-ExtraBold': require('../../assets/fonts/Raleway-ExtraBold.ttf'),
+   });
+ }
+
   analytics() {
     Expo.Segment.track('ResultPage');
   }
@@ -27,11 +35,9 @@ class ResultPage extends Component {
      return (
        <Card>
         <View style={styles.container}>
-
-          <Text style={styles.text}>
-            Total meeting time was:
-          </Text>
-
+            <Text style={styles.text}>
+              Total meeting time was:
+            </Text>
           <View
            style={[styles.firstBackgroundColor, styles.containerResults]}
           >
@@ -74,6 +80,7 @@ const styles = {
     flex: 1
   },
   text: {
+    fontFamily: 'Raleway-Light',
     fontSize: 17,
     color: '#4D4D4D',
     marginBottom: 10,
@@ -95,13 +102,15 @@ const styles = {
     fontSize: 30,
     color: '#6F3AAD',
     marginTop: 20,
-    marginBottom: 20
+    marginBottom: 20,
+    fontFamily: 'Raleway-ExtraBold'
   },
   textCost: {
     fontSize: 30,
     color: '#FFC543',
     marginTop: 20,
-    marginBottom: 20
+    marginBottom: 20,
+    fontFamily: 'Raleway-ExtraBold'
   }
 };
 

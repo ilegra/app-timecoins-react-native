@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
 import { View, Image } from 'react-native';
 import Expo from 'expo';
+import { Font } from 'expo';
 import { Card, CardSection, Input, Button } from './common';
 
 class MeetingInfoForm extends Component {
   state = {
     amount: 0,
     quantity: 0,
+    fontLoaded: false
   };
 
   componentWillMount() {
     this.analytics();
   }
+
+  componentDidMount() {
+    Font.loadAsync({
+     'Raleway-Light': require('../../assets/fonts/Raleway-Light.ttf'),
+   });
+ }
 
   onChange = (field, value) => {
     this.setState({
@@ -45,14 +53,14 @@ class MeetingInfoForm extends Component {
           <CardSection>
             <Input
               onChangeText={this.onChange.bind(this, 'amount')}
-              placeholder="Enter the average salary of participants"
+              placeholder={'Enter the average salary of participants'}
             />
           </CardSection>
 
           <CardSection>
             <Input
               onChangeText={this.onChange.bind(this, 'quantity')}
-              placeholder="Enter the number of participants"
+              placeholder={'Enter the number of participants'}
             />
           </CardSection>
 
