@@ -19,14 +19,14 @@ const ShowAmount = ({
   quantity,
   amount,
 }) => (
-    <Text style={styles.textCost}>
-      $
-      {
-        Math.round(timeToSec(currentTime)
-        * ((quantity
-        * amount) / 576.000)) / 100
-      }
-    </Text>
+      <Text style={styles.textCost}>
+        $
+        {
+          Math.round(timeToSec(currentTime)
+          * ((quantity
+          * amount) / 576.000)) / 100
+        }
+      </Text>
 );
 
 class StopWatchApp extends Component {
@@ -48,15 +48,19 @@ class StopWatchApp extends Component {
     this.resetStopwatch = this.resetStopwatch.bind(this);
   }
 
+  state = {
+    fontLoaded: false
+  }
+
   componentWillMount() {
     this.analytics();
   }
 
   componentDidMount() {
     Font.loadAsync({
-     'Raleway-ExtraBold': require('../../assets/fonts/Raleway-ExtraBold.ttf'),
-   });
- }
+      'Raleway-ExtraBold': require('../../assets/fonts/Raleway-ExtraBold.ttf'),
+    });
+  }
 
   getFormattedTime = (time) => {
     if (this.state.currentTime === time) return;
@@ -184,7 +188,7 @@ const styles = {
   textCost: {
     fontSize: 30,
     color: '#FFC543',
-    marginLeft: 7,
+    marginLeft: 7
   },
   containerCost: {
     padding: 5,
