@@ -18,9 +18,6 @@ const Banner = ({ placementId }) => {
 
 const styles = {
   styleBanner: {
-    flex: 2,
-    alignSelf: 'stretch',
-    padding: 2,
     paddingBottom: 20
   }
 };
