@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, ScrollView, KeyboardAvoidingView } from 'react-native';
+import { View, ScrollView, KeyboardAvoidingView, Text } from 'react-native';
 import Expo from 'expo';
+import { Font } from 'expo';
 import Header from './src/components/common/Header';
 import MeetingInfoForm from './src/components/MeetingInfoForm';
 import StopWatchApp from './src/components/StopWatchApp';
 import ResultPage from './src/components/ResultPage';
+import Banner from './src/components/Banner';
 
 export default class App extends React.Component {
   state = {
@@ -12,11 +14,20 @@ export default class App extends React.Component {
     amount: 0,
     quantity: 0,
     currentTime: 0,
+    fontLoaded: false
   }
 
   componentWillMount() {
     this.analytics();
   }
+
+  async componentDidMount() {
+   await Font.loadAsync({
+     'Raleway-Bold': require('./assets/fonts/Raleway-Bold.ttf'),
+   });
+
+    this.setState({ fontLoaded: true });
+ }
 
   onSubmitMeetingForm = (values) => {
     this.setState({
@@ -72,8 +83,17 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <Header headerText={'TIME INTO COINS'} />
+        <Header
+          headerText={
+            this.state.fontLoaded ? (
+              <Text style={{ fontFamily: 'Raleway-Bold' }}>
+                TIME INTO COINS
+              </Text>
+            ) : null
+          }
+        />
         <ScrollView>
+          <Banner placementId="824806654350563_824807234350505" />
           <KeyboardAvoidingView
             behavior="padding"
           >

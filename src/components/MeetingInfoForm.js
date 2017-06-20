@@ -34,30 +34,32 @@ class MeetingInfoForm extends Component {
   render() {
     return (
       <Card>
-        <View style={styles.containerLogoStyle}>
-          <Image
-            style={styles.logoImage}
-            source={require('../../assets/images/desenho-ampulheta.png')}
-          />
+        <View style={{ flex: 1 }}>
+          <View style={styles.containerLogoStyle}>
+            <Image
+              style={styles.logoImage}
+              source={require('../../assets/images/desenho-ampulheta.png')}
+            />
+          </View>
+
+          <CardSection>
+            <Input
+              onChangeText={this.onChange.bind(this, 'amount')}
+              placeholder="Enter the average salary of participants"
+            />
+          </CardSection>
+
+          <CardSection>
+            <Input
+              onChangeText={this.onChange.bind(this, 'quantity')}
+              placeholder="Enter the number of participants"
+            />
+          </CardSection>
+
+          <Button onPress={this.onPress}>
+            {require('../../assets/images/botao-play.png')}
+          </Button>
         </View>
-
-        <CardSection>
-          <Input
-            onChangeText={this.onChange.bind(this, 'amount')}
-            placeholder="Enter the average salary of participants"
-          />
-        </CardSection>
-
-        <CardSection>
-          <Input
-            onChangeText={this.onChange.bind(this, 'quantity')}
-            placeholder="Enter the number of participants"
-          />
-        </CardSection>
-
-        <Button onPress={this.onPress}>
-          {require('../../assets/images/botao-play.png')}
-        </Button>
       </Card>
     );
   }

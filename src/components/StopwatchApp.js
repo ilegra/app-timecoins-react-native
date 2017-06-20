@@ -143,7 +143,6 @@ class StopWatchApp extends Component {
             </View>
           </View>
         </Card>
-
     );
   }
 }
@@ -152,7 +151,8 @@ const handleTimerComplete = () => ('custom completion function');
 
 const styles = {
   containerAll: {
-    marginTop: 20
+    marginTop: 20,
+    flex: 1
   },
   iconStyle: {
     width: 50,

@@ -71,6 +71,7 @@ const styles = {
     padding: 5,
     borderRadius: 5,
     alignItems: 'center',
+    flex: 1
   },
   text: {
     fontSize: 17,
