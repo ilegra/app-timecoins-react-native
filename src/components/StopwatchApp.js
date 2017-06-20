@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import Expo from 'expo';
 import { Stopwatch } from 'react-native-stopwatch-timer';
 import { Card } from './common';
-import Banner from './Banner';
 
 const timeToSec = (time) => {
   const [
@@ -143,9 +142,7 @@ class StopWatchApp extends Component {
               </TouchableOpacity>
             </View>
           </View>
-          <Banner placementId="824806654350563_824807234350505" />
         </Card>
-
     );
   }
 }
@@ -154,7 +151,8 @@ const handleTimerComplete = () => ('custom completion function');
 
 const styles = {
   containerAll: {
-    marginTop: 20
+    marginTop: 20,
+    flex: 1
   },
   iconStyle: {
     width: 50,

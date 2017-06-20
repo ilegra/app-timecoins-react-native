@@ -5,7 +5,7 @@ import Header from './src/components/common/Header';
 import MeetingInfoForm from './src/components/MeetingInfoForm';
 import StopWatchApp from './src/components/StopWatchApp';
 import ResultPage from './src/components/ResultPage';
-
+import Banner from './src/components/Banner';
 
 export default class App extends React.Component {
   state = {
@@ -75,6 +75,7 @@ export default class App extends React.Component {
       <View style={{ flex: 1 }}>
         <Header headerText={'TIME INTO COINS'} />
         <ScrollView>
+          <Banner placementId="824806654350563_824807234350505" />
           <KeyboardAvoidingView
             behavior="padding"
           >

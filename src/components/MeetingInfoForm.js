@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { View, Image } from 'react-native';
 import Expo from 'expo';
 import { Card, CardSection, Input, Button } from './common';
-import Banner from './Banner';
 
 class MeetingInfoForm extends Component {
   state = {
@@ -35,31 +34,32 @@ class MeetingInfoForm extends Component {
   render() {
     return (
       <Card>
-        <View style={styles.containerLogoStyle}>
-          <Image
-            style={styles.logoImage}
-            source={require('../../assets/images/desenho-ampulheta.png')}
-          />
+        <View style={{ flex: 1 }}>
+          <View style={styles.containerLogoStyle}>
+            <Image
+              style={styles.logoImage}
+              source={require('../../assets/images/desenho-ampulheta.png')}
+            />
+          </View>
+
+          <CardSection>
+            <Input
+              onChangeText={this.onChange.bind(this, 'amount')}
+              placeholder="Enter the average salary of participants"
+            />
+          </CardSection>
+
+          <CardSection>
+            <Input
+              onChangeText={this.onChange.bind(this, 'quantity')}
+              placeholder="Enter the number of participants"
+            />
+          </CardSection>
+
+          <Button onPress={this.onPress}>
+            {require('../../assets/images/botao-play.png')}
+          </Button>
         </View>
-
-        <CardSection>
-          <Input
-            onChangeText={this.onChange.bind(this, 'amount')}
-            placeholder="Enter the average salary of participants"
-          />
-        </CardSection>
-
-        <CardSection>
-          <Input
-            onChangeText={this.onChange.bind(this, 'quantity')}
-            placeholder="Enter the number of participants"
-          />
-        </CardSection>
-
-        <Button onPress={this.onPress}>
-          {require('../../assets/images/botao-play.png')}
-        </Button>
-        <Banner placementId="824806654350563_824807234350505" />
       </Card>
     );
   }

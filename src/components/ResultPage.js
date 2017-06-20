@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import Expo from 'expo';
 import { Card, Button } from './common';
-import Banner from './Banner';
 
 const timeToSec = (time) => {
   const [
@@ -62,7 +61,6 @@ class ResultPage extends Component {
             {require('../../assets/images/botao-recomeçar.png')}
           </Button>
         </View>
-        <Banner placementId="824806654350563_824807234350505" />
        </Card>
      );
    }
@@ -73,6 +71,7 @@ const styles = {
     padding: 5,
     borderRadius: 5,
     alignItems: 'center',
+    flex: 1
   },
   text: {
     fontSize: 17,
