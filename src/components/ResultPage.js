@@ -90,7 +90,7 @@ const styles = {
     flex: 2,
     alignSelf: 'stretch',
     alignItems: 'center',
-    marginBottom: 40
+    marginBottom: 60
   },
   firstBackgroundColor: {
     backgroundColor: '#FFC543'

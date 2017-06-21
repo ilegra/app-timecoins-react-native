@@ -20,11 +20,11 @@ const Input = ({ value, onChangeText, placeholder }) => {
 
 const styles = {
   inputStyle: {
-    color: '#000',
+    color: '#4D4D4D',
     paddingRight: 5,
     paddingLeft: 5,
     padding: 5,
-    fontSize: 18,
+    fontSize: 16,
     lineHeight: 23,
     flex: 1,
     fontFamily: 'Raleway-Light'

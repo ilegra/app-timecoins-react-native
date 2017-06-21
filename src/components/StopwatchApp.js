@@ -153,7 +153,8 @@ const handleTimerComplete = () => ('custom completion function');
 
 const styles = {
   containerAll: {
-    marginTop: 20
+    marginTop: 20,
+    flex: 1
   },
   iconStyle: {
     width: 50,
@@ -167,12 +168,12 @@ const styles = {
   buttonStyle: {
     width: 100,
     height: 100,
-    marginTop: 5,
+    marginTop: 25
   },
   containerButtonStyle: {
     justifyContent: 'space-around',
     flexDirection: 'row',
-    marginTop: 50,
+    marginTop: 48,
     marginBottom: 5
   },
   textCost: {
@@ -193,7 +194,7 @@ const options = {
     padding: 5,
     borderRadius: 5,
     alignItems: 'center',
-    marginBottom: 10
+    marginBottom: 12
   },
   text: {
     fontSize: 30,
