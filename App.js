@@ -24,6 +24,8 @@ export default class App extends React.Component {
   async componentDidMount() {
    await Font.loadAsync({
      'Raleway-Bold': require('./assets/fonts/Raleway-Bold.ttf'),
+     'Raleway-Light': require('./assets/fonts/Raleway-Light.ttf'),
+     'Raleway-ExtraBold': require('./assets/fonts/Raleway-ExtraBold.ttf'),
    });
 
     this.setState({ fontLoaded: true });
@@ -57,7 +59,15 @@ export default class App extends React.Component {
   renderPage = () => {
     if (this.state.page === 'MeetingInfoForm') {
       return (
-        <MeetingInfoForm onSubmit={this.onSubmitMeetingForm} />
+        this.state.fontLoaded ? (
+          <MeetingInfoForm
+            onSubmit={
+              this.state.fontLoaded ? (
+                this.onSubmitMeetingForm
+              ) : null
+            }
+          />
+        ) : null
       );
     } else if (this.state.page === 'StopWatchApp') {
       return (

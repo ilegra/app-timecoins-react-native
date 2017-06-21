@@ -48,18 +48,8 @@ class StopWatchApp extends Component {
     this.resetStopwatch = this.resetStopwatch.bind(this);
   }
 
-  state = {
-    fontLoaded: false
-  }
-
   componentWillMount() {
     this.analytics();
-  }
-
-  componentDidMount() {
-    Font.loadAsync({
-      'Raleway-ExtraBold': require('../../assets/fonts/Raleway-ExtraBold.ttf'),
-    });
   }
 
   getFormattedTime = (time) => {
@@ -188,7 +178,8 @@ const styles = {
   textCost: {
     fontSize: 30,
     color: '#FFC543',
-    marginLeft: 7
+    marginLeft: 7,
+    fontFamily: 'Raleway-ExtraBold'
   },
   containerCost: {
     padding: 5,
@@ -208,7 +199,8 @@ const options = {
     fontSize: 30,
     color: '#6F3AAD',
     marginLeft: 7,
-    alignItems: 'center'
+    alignItems: 'center',
+    fontFamily: 'Raleway-ExtraBold'
   }
 };
 

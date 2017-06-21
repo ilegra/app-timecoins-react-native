@@ -8,18 +8,11 @@ class MeetingInfoForm extends Component {
   state = {
     amount: 0,
     quantity: 0,
-    fontLoaded: false
-  };
+  }
 
   componentWillMount() {
     this.analytics();
   }
-
-  componentDidMount() {
-    Font.loadAsync({
-     'Raleway-Light': require('../../assets/fonts/Raleway-Light.ttf'),
-   });
- }
 
   onChange = (field, value) => {
     this.setState({
