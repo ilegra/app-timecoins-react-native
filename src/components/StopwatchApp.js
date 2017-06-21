@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import Expo from 'expo';
+import { Font } from 'expo';
 import { Stopwatch } from 'react-native-stopwatch-timer';
 import { Card } from './common';
 
@@ -18,14 +19,14 @@ const ShowAmount = ({
   quantity,
   amount,
 }) => (
-  <Text style={styles.textCost}>
-    $
-    {
-      Math.round(timeToSec(currentTime)
-      * ((quantity
-      * amount) / 576.000)) / 100
-    }
-  </Text>
+      <Text style={styles.textCost}>
+        $
+        {
+          Math.round(timeToSec(currentTime)
+          * ((quantity
+          * amount) / 576.000)) / 100
+        }
+      </Text>
 );
 
 class StopWatchApp extends Component {
@@ -143,6 +144,7 @@ class StopWatchApp extends Component {
             </View>
           </View>
         </Card>
+
     );
   }
 }
@@ -151,8 +153,7 @@ const handleTimerComplete = () => ('custom completion function');
 
 const styles = {
   containerAll: {
-    marginTop: 20,
-    flex: 1
+    marginTop: 20
   },
   iconStyle: {
     width: 50,
@@ -177,7 +178,8 @@ const styles = {
   textCost: {
     fontSize: 30,
     color: '#FFC543',
-    marginLeft: 7
+    marginLeft: 7,
+    fontFamily: 'Raleway-ExtraBold'
   },
   containerCost: {
     padding: 5,
@@ -197,7 +199,8 @@ const options = {
     fontSize: 30,
     color: '#6F3AAD',
     marginLeft: 7,
-    alignItems: 'center'
+    alignItems: 'center',
+    fontFamily: 'Raleway-ExtraBold'
   }
 };
 

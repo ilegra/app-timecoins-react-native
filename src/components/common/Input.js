@@ -26,7 +26,8 @@ const styles = {
     padding: 5,
     fontSize: 18,
     lineHeight: 23,
-    flex: 1
+    flex: 1,
+    fontFamily: 'Raleway-Light'
   },
   containerStyle: {
     height: 40,
